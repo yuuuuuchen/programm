@@ -60,7 +60,7 @@ ratio = len(xachs)/len(datapoints)
 ## Simulation Y1
 print("\nSimulation Y1")
 Y1 = D1+X1
-measurement_1 = Y1[::ratio]
+measurement_1 = Y1[::int(ratio)]
 estY1_1 = kriging(-1, datapoints, measurement_1, 
     covariancefunction=covariancefunction_X1)
 estY1_2 = kriging(-1, datapoints, measurement_1, 
@@ -89,7 +89,7 @@ plt.show()
 ## Simulation Y2
 print("\nSimulation Y2")
 Y2 = D2+X1
-measurement_2 = Y2[::ratio]
+measurement_2 = Y2[::int(ratio)]
 estY2_1 = kriging(-1, datapoints, measurement_2, 
     covariancefunction=covariancefunction_X1)
 estY2_2 = kriging(-1, datapoints, measurement_2, 
@@ -118,7 +118,7 @@ plt.show()
 ## Simulation Y3
 print("\nSimulation Y3")
 Y3 = D2+X2
-measurement_3 = Y3[::ratio]
+measurement_3 = Y3[::int(ratio)]
 estY3_1 = kriging(0, datapoints, measurement_3, 
     drift=[drift_1, drift_2], genCov=genCov_X2)
 estY3_2 = kriging(-1, datapoints, measurement_3, 
