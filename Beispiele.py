@@ -22,7 +22,7 @@ def covariancefunction_X1(t,s,h=0.15):
 # Kovarianzfunktion von X2
 def covariancefunction_X2(t,s):
     return (t<=s) * t + (s<t) * s
-# Generalisierte Kovarianzfunktion von X2
+# verallgemeinerte Kovarianzfunktion von X2
 def genCov_X2(d): 
     return 0.5*(d>0)*(-d)+0.5*(d<=0)*d
 
@@ -132,9 +132,11 @@ print("Quadratische Abweichungen:")
 error3_1 = sum((estY3_1-Y3)*(estY3_1-Y3))
 print("Intrinsische Kriging: "+str(error3_1))
 error3_2 = sum((estY3_2-Y3)*(estY3_2-Y3))
-print("Universale Kriging mit Kovarianzfunktion: "+str(error3_2))
+print("Universale Kriging mit Kovarianzfunktion: "
+    +str(error3_2))
 error3_3 = sum((estY3_3-Y3)*(estY3_3-Y3))
-print("Universale Kriging mit generalisierter Kovarianzfunktion: "+str(error3_3))
+print("Universale Kriging mit verallgemeinerter \
+    Kovarianzfunktion: "+str(error3_3))
 
 # Ergebnis plotten 
 plt.plot(datapoints, measurement_3, 'bo', label='Messpunkten')
@@ -147,7 +149,8 @@ plt.plot(xachs, estY3_1, color='purple',
 plt.plot(xachs, estY3_2, color='green', 
     label='universale Kriging mit Kovarianzfunktion')
 plt.plot(xachs, estY3_3, color='blue', 
-    label='universale Kriging mit generalisierter Kovarianzfunktion')
+    label='universale Kriging mit verallgemeinerter \
+     Kovarianzfunktion')
 
 plt.legend(loc='lower left')
 plt.show()
