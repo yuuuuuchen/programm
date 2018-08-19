@@ -45,7 +45,7 @@ def kriging(order, datapoints, measurement,
         for j, data2 in enumerate(datapoints):
             if covariancefunction != None:    
                 left[i,j] = covariancefunction(data1, 
-                        data2, 0.15)
+                        data2)
             elif genCov != None:
                 left[i,j] = genCov(data2-data1)
             else:
